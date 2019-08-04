@@ -2,14 +2,14 @@ package chap02;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Main {
+public class Main2 {
 
     public static void main(String[] args) {
-        // 자바 애노테이션을 이용한 클래스로부터 객체 설정 정보를 가져온다.
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppContext.class);
-        Greeter g = ctx.getBean("greeter", Greeter.class);
-        String msg = g.greet("스프링");
-        System.out.println(msg);
+        Greeter g1 = ctx.getBean("greeter", Greeter.class);
+        Greeter g2 = ctx.getBean("greeter", Greeter.class);
+        // getBean() 메서드는 같은 객체를 리턴 ~
+        System.out.println("(g1 == g2) = " + (g1 == g2));
         ctx.close();
     }
 }
